@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Annonces L1GI</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background: #4CAF50; color: white; padding: 10px; }
+        td { padding: 10px; border-bottom: 1px solid #ddd; }
+        tr:hover { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Annonces - L1GI</h1>
+    
+    {% if annonces %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Texte</th>
+            <th>Date</th>
+        </tr>
+        {% for annonce in annonces %}
+        <tr>
+            <td>{{ annonce.id }}</td>
+            <td>{{ annonce.texte }}</td>
+            <td>{{ annonce.date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><em>Total: {{ annonces|length }} annonce(s)</em></p>
+    {% else %}
+    <p>Aucune annonce disponible.</p>
+    {% endif %}
+</body>
+</html>
